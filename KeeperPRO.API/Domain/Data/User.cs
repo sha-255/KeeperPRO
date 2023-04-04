@@ -1,4 +1,5 @@
-﻿namespace KeeperPRO.Api.Domain.Data
+﻿#pragma warning disable
+namespace KeeperPRO.Api.Domain.Data
 {
     public class User
     {

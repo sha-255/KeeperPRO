@@ -1,4 +1,5 @@
-﻿namespace KeeperPRO.Domain.Data
+﻿#pragma warning disable
+namespace KeeperPRO.Domain.Data
 {
     public class Staff
     {
