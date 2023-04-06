@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace KeeperPRO.Controllers
+namespace KeeperPRO.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -42,7 +42,8 @@ namespace KeeperPRO.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Update(int id, Staff staff)
         {
-            if (id != staff.Id) return BadRequest();
+            if (id != staff.Id) 
+                return BadRequest();
             _context.Entry(staff).State = EntityState.Modified;
             await _context.SaveChangesAsync();
             return NoContent();
@@ -54,7 +55,8 @@ namespace KeeperPRO.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             var staffToDelete = await _context.Staffs.FindAsync(id);
-            if (staffToDelete == null) return NotFound();
+            if (staffToDelete == null) 
+                return NotFound();
             _context.Staffs.Remove(staffToDelete);
             await _context.SaveChangesAsync();
             return NoContent();

@@ -1,4 +1,4 @@
-﻿using KeeperPRO.Common.Exeptions;
+﻿using KeeperPRO.Api.Common.Exeptions;
 using Microsoft.EntityFrameworkCore;
 
 namespace KeeperPRO.Api.Domain.Context.Staff

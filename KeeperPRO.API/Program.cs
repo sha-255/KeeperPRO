@@ -1,10 +1,10 @@
+using KeeperPRO.Api.Common.EnumsAndConstants;
 using KeeperPRO.Api.Domain.Context.Staff;
 using KeeperPRO.Api.Domain.Context.User;
 using KeeperPRO.Api.Domain.Data;
-using KeeperPRO.Common.EnumsAndConstants;
 using Microsoft.EntityFrameworkCore;
 
-namespace KeeperPRO
+namespace KeeperPRO.Api
 {
     public class Program
     {

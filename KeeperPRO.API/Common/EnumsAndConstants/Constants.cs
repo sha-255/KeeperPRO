@@ -1,4 +1,4 @@
-﻿namespace KeeperPRO.Common.EnumsAndConstants
+﻿namespace KeeperPRO.Api.Common.EnumsAndConstants
 {
     public static class Constants
     {

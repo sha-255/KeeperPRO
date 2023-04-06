@@ -1,5 +1,5 @@
 ﻿using KeeperPRO.Client.Dto;
-using KeeperPRO.Common.Exeptions;
+using KeeperPRO.Api.Common.Exeptions;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text;

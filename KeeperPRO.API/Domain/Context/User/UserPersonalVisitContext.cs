@@ -1,5 +1,5 @@
-﻿using KeeperPRO.Api.Domain.Data;
-using KeeperPRO.Common.Exeptions;
+﻿using KeeperPRO.Api.Common.Exeptions;
+using KeeperPRO.Api.Domain.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace KeeperPRO.Api.Domain.Context.User

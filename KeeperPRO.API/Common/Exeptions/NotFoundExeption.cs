@@ -1,4 +1,4 @@
-﻿namespace KeeperPRO.Common.Exeptions
+﻿namespace KeeperPRO.Api.Common.Exeptions
 {
     public class NotFoundExeption<T> : Exception
     {
