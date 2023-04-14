@@ -1,9 +1,7 @@
 ﻿#pragma warning disable
-using System.ComponentModel.DataAnnotations;
-
-namespace KeeperPRO.Api.Domain.Data
+namespace KeeperPRO.WPFClient.DTOs
 {
-    public class User
+    public class UserPersonalVisitDto
     {
         public int Id { get; set; }
         public string FullName { get; set; }
@@ -11,7 +9,6 @@ namespace KeeperPRO.Api.Domain.Data
         public string Email { get; set; }
         public string BirthdayDate { get; set; }
         public long PassportData { get; set; }
-        [Key]
         public string Login { get; set; }
         public string Password { get; set; }
         public string Appointment { get; set; }

@@ -1,4 +1,7 @@
 ﻿#pragma warning disable
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+
 namespace KeeperPRO.Domain.Data
 {
     public class Staff
@@ -7,6 +10,7 @@ namespace KeeperPRO.Domain.Data
         public string FullName { get; set; }
         public string? Division { get; set; }
         public string? Department { get; set; }
-        public int? Code { get; set; }
+        [Key]
+        public int Code { get; set; }
     }
 }

@@ -9,10 +9,8 @@
       Title="Autorization">
 
     <Grid Background="White">
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="200">
-            <Label Content="Логин"/>
-            <TextBox x:Name="LoginTextBox"/>
-            <Label Content="Пароль"/>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="100">
+            <Label Content="Код сотрудника:"/>
             <PasswordBox x:Name="PasswordBox"/>
             <Label/>
             <Button Content="Авторизоватся" x:Name="AutorizationButton"/>

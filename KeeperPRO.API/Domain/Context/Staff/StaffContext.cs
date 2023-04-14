@@ -9,7 +9,7 @@ namespace KeeperPRO.Api.Domain.Context.Staff
             : base(options)
         {
             if (options == null)
-                throw new NotFoundExeption<StaffContext>();
+                throw new NotFoundExeption<DbContextOptions<StaffContext>>();
         }
 
         public DbSet<KeeperPRO.Domain.Data.Staff> Staffs { get; set; }

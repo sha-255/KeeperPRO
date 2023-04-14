@@ -19,12 +19,13 @@ namespace KeeperPRO.Api.Controllers
         public async Task<IEnumerable<Staff>> Get()
             => await _context.Staffs.ToListAsync();
 
-        [HttpGet("id")]
+        [HttpGet("code")]
         [ProducesResponseType(typeof(Staff), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetById(int id)
+        public async Task<IActionResult> GetByPK(int code)
         {
-            var staff = await _context.Staffs.FindAsync(id);
+            var staff = await _context.Staffs.FindAsync(code);
+            _context.Staffs.Find(code);
             return staff == null ? NotFound() : Ok(staff);
         }
 
@@ -34,27 +35,27 @@ namespace KeeperPRO.Api.Controllers
         {
             await _context.Staffs.AddAsync(staff);
             await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetById), new { id = staff.Id }, staff);
+            return CreatedAtAction(nameof(GetByPK), new { code = staff.Code }, staff);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{code}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Update(int id, Staff staff)
+        public async Task<IActionResult> Update(int code, Staff staff)
         {
-            if (id != staff.Id) 
+            if (code != staff.Code) 
                 return BadRequest();
             _context.Entry(staff).State = EntityState.Modified;
             await _context.SaveChangesAsync();
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{code}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(int code)
         {
-            var staffToDelete = await _context.Staffs.FindAsync(id);
+            var staffToDelete = await _context.Staffs.FindAsync(code);
             if (staffToDelete == null) 
                 return NotFound();
             _context.Staffs.Remove(staffToDelete);
