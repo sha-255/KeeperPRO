@@ -22,10 +22,9 @@ namespace KeeperPRO.Api.Controllers
         [HttpGet("code")]
         [ProducesResponseType(typeof(Staff), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetByPK(int code)
+        public async Task<IActionResult> GetBy(int code)
         {
             var staff = await _context.Staffs.FindAsync(code);
-            _context.Staffs.Find(code);
             return staff == null ? NotFound() : Ok(staff);
         }
 
@@ -35,7 +34,7 @@ namespace KeeperPRO.Api.Controllers
         {
             await _context.Staffs.AddAsync(staff);
             await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetByPK), new { code = staff.Code }, staff);
+            return CreatedAtAction(nameof(GetBy), new { code = staff.Code }, staff);
         }
 
         [HttpPut("{code}")]

@@ -5,38 +5,37 @@ using System.Net.Http;
 using System;
 using System.Threading.Tasks;
 using System.Net.Http.Json;
-using Azure;
 
 namespace KeeperPRO.WPFClient
 {
     public class ApiClient
     {
-        public static async Task<T> GetEntityAsync<T>(string requestUri)
+        public static async Task<T> GetEntityAsync<T>(
+            string requestUri, 
+            string baseAddress = "https://localhost:7170")
         {
-            var response = await InitializeHttpClient("https://localhost:7170")
+            var response = await InitializeHttpClient(baseAddress)
                 .GetAsync(requestUri);
             response.EnsureSuccessStatusCode();
             if (response.IsSuccessStatusCode)
             {
                 var result = await response.Content.ReadFromJsonAsync<T>();
-                if (result == null)
-                    throw new NotFoundExeption<T>();
-                return result;
+                return result ?? throw new NotFoundExeption<T>();
             }
             throw new NullReferenceException(response.StatusCode.ToString());
         }
 
-        public static async Task<IEnumerable<T>> GetAllEntitysAsync<T>(string requestUri)
+        public static async Task<IEnumerable<T>> GetAllEntitysAsync<T>(
+            string requestUri, 
+            string baseAddress = "https://localhost:7170")
         {
-            var response = await InitializeHttpClient("https://localhost:7170")
+            var response = await InitializeHttpClient(baseAddress)
                 .GetAsync(requestUri);
             response.EnsureSuccessStatusCode();
             if (response.IsSuccessStatusCode)
             {
                 var result = await response.Content.ReadFromJsonAsync<IEnumerable<T>>();
-                if (result == null)
-                    throw new NotFoundExeption<IEnumerable<T>>();
-                return result;
+                return result ?? throw new NotFoundExeption<IEnumerable<T>>();
             }
             throw new NullReferenceException(response.StatusCode.ToString());
         }
