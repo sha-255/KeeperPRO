@@ -46,8 +46,9 @@ namespace KeeperPRO.Api.Controllers
         [HttpDelete("login")]
         public async Task<IActionResult> Delete(string login)
         {
-            var user =  await _context.UsersGroupVisit.FindAsync(login);
-            _context.UsersGroupVisit.Remove(user);
+            _context.UsersGroupVisit.Remove(
+                await _context.UsersGroupVisit.FindAsync(login)
+                ?? throw new NullReferenceException());
             await _context.SaveChangesAsync();
             return NoContent();
         }
